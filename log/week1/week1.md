@@ -52,11 +52,11 @@
 
 - `javac` 명령으로 바이트코드 생성
 
-![바이트코드 생성](https://github.com/hanull/java-study/tree/master/log/week1/img/javac.png)
+![바이트코드 생성](https://github.com/hanull/java-study/blob/master/log/week1/img/javac.png)
 
 - 생성된 바이트코드는 `javap` 명령으로 확인 가능
 
-![바이트코드 확인](https://github.com/hanull/java-study/tree/master/log/week1/img/javac2.png)
+![바이트코드 확인](https://github.com/hanull/java-study/blob/master/log/week1/img/javac2.png)
 
 
 
@@ -70,7 +70,7 @@
 
    - 토큰 스트림의 언어의 스펙으로 정해진 문법 형식에 맞는지 검사한다. 맞지 않으면 `컴파일 에러`, 맞다면 `파스 트리` 를 생성한다.
 
-   ![출처 : https://en.wikipedia.org/wiki/Compiler](https://github.com/hanull/java-study/tree/master/log/week1/img/parsertree.gif)
+   ![출처 : https://en.wikipedia.org/wiki/Compiler](https://github.com/hanull/java-study/blob/master/log/week1/img/parsertree.gif)
 
 3. 의미 분석
 
@@ -93,39 +93,17 @@
 
 `java` 명령으로 자바 애플리케이션을 실행할 수 있다. 
 
-![](https://github.com/hanull/java-study/tree/master/log/week1/img/java.png)
+![](https://github.com/hanull/java-study/blob/master/log/week1/img/java.png)
 
 
 
 ### 실행 과정
 
-java 명령으로 애플리케이션을 실행하면, `JVM 실행` 되면서 `시작 클래스를 생성`, `링크`, `초기화`하고 `main 메서드를 호출`한다.
-
-1. JVM 실행
-
-   - JVM 단위로 `힙`과 `메서드 영역`이 생성된다.
-
-2. 시작 클래스 생성
-
-   - 바이트코드를 `클래스 로더`가 읽어들여 `메서드 영역` 에 저장한다.
-   - 상수 풀의 내용을 바탕으로, `런타임 상수 풀`이 `클래스 단위`로 만들어져서 `메서드 영역`에 함께 저장된다.
-
-3. 링크
-
-   - `확인(verify), 준비(prepare), 해석(resolve)` 과정을 진행한다.
-   - 확인(verify) : 클래스, 인터페이스의 `바이너리 표현이 구조적으로 올바른지` 확인한다.
-   - 준비(prepare) : 클래스, 인터페이스의 `정적(static) 필드`를 생성하고, `기본값으로 초기화`하는 과정이다. (특정값으로 초기화하는 과정은 `초기화 과정`에서 수행된다.)
-   - 해석(resolve) : 심볼리 참조가 구체적인 값을 가리키도록 동적으로 결정하는 과정이다. (해석 시점은 JVM 구현체에 따라 다를 수 있다.)
-
-4. 초기화
-
-   - 정적(static) 블럭을 하나로 합친 것을 실행한다. 즉, static 블럭에 있는 특정값으로 정적 초기화를 한다. 
-
-5. main 메서드 호출
-
-   - `main 메서드 프레임`이 생성되고, 로직에 따라 동적 수행을 한다.
-
-   - `PC Register, JVM Stack, Native Method Stack`이 한 개씩  `생성`된다.
+1. 프로그램이 실행되면, JVM이 OS로부터 이 프로그램이 필요로 하는 메모리를 할당받는다.
+2. `클래스 로더`를 통해 `바이트코드(.class)`를 JVM으로 로딩한다.
+3. 로딩된 바이트코드들을 `Execution engine`을 통해 `해석`하여 `Runtime Data Areas`에 저장한다.
+4. `Execution engine` 를 통해 저장된 바이트코드를 실행한다.
+5.  이러한 과정속에서 JVM은 필요에 따라 `GC` 같은 관리 작업을 수행한다.
 
 
 
@@ -139,12 +117,53 @@ java 명령으로 애플리케이션을 실행하면, `JVM 실행` 되면서 `�
 
 ## 5. JIT 컴파일러란 무엇이며 어떻게 동작하는가
 
+### JIT 컴파일러
+
+프로그램을 실제 실행하는 시점에 기계어로 번역하는 컴파일 기법이다.
+
+### 동작 방법
+
+인터프리터 방식으로 실행하다가 반복되는 코드를 발견 시, 바이트코드 전체를 컴파일하여 네이티브 코드로 변경하고, 이후에는 더 이상 인터프리팅 하지 않고 네이티브 코드로 직접 실행한다.
+
+### 장점
+
+인터프리터의 속도를 개선할 수 있다. 왜냐하면, 네이티브 코드는 캐시에 보관하기 때문에 한 번 컴파일된 코드는 빠르게 수행하게 된다.
 
 
 
 ## 6. JVM 구성요소
 
+### Class Loader
 
+바이트코드를 읽고 메모리에 저장하는 역할을 한다.
+
+### Execution Engine
+
+클래스를 실행시키는 역할을 한다. 실행 엔진은 메모리에 적재된 바이트 코드를 실제로 JVM내부에서 기계가 실행할 수 있는 형태로 변경한다. 이 때 두 가지 방식(Interpreter, JIT)을 사용한다.
+
+### Runtime Data Areas
+
+프로그램을 수행하기 위해 OS에서 할당받는 메모리 영역이다. 런타임 데이터 영역은 5개의 영역으로 나눌 수 있다. 이중 PC 레지스터(PC Register), JVM 스택(JVM Stack), 네이티브 메서드 스택(Native Method Stack)은 스레드마다 하나씩 생성되며 힙(Heap), 메서드 영역(Method Area) 은 모든 스레드가 공유해서 사용한다.
+
+### PC Register
+
+스레드가 시작될 때 생성된다. PC레지스터는 Thread가 어떤 명령어로 실행되어야 할지에 대한 기록을 하는 부분으로 현재 수행중인 JVM명령의 주소를 갖는다.
+
+### JVM 스택
+
+프로그램 실행과정에서 임시로 할당되었다가 메소드를 빠져나가면 바로 소멸되는 데이터를 저장하기 위한 영역이다. 지역변수, 매개변수, 메소드 정보, 연산 중 발생하는 임시 데이터등 저장이 된다. 메소드 호출 시마다 각각의 스택 프레임(그 메소드만을 위한 공간)이 생성된다. 메서드 수행이 끝나면 프레임 별로 삭제한다.
+
+### Native method stack
+
+바이트코드가 아닌 실제 실행할 수 있는 기계어로 작성된 프로그램을 실행시키는 영역이다. 자바가 아닌 다른 언어로 작성된 코드를 위한 공간이다.
+
+### Heap
+
+동적으로 할당되는 데이터가 저장되는 영역이다. 예를들어 객체생, 배열등이 생성되었을 때 저장되는 공간이다. Heap에 할당된 데이터는 GC의 대상이다.
+
+### Method Area
+
+모든 스레드가 공유하는 영역으로 JVM이 시작될 때 생성된다. 클래스 이름, 메소드, 변수 등을 저장한다.
 
 
 
@@ -159,7 +178,7 @@ JRE = JVM + 라이브러리
 - 자바 애플리케이션을 `실행`할 수 있도록 구성된 배포판이다. 즉, JVM의 `실행 환경`을 구현했다고 할 수 있다.
 - 하지만, 개발 도구는 포함하지 않는다. (JDK에서 제공)
 
-![출처 : https://wikidocs.net/257](https://github.com/hanull/java-study/tree/master/log/week1/img/jre.jpg)
+![출처 : https://wikidocs.net/257](https://github.com/hanull/java-study/blob/master/log/week1/img/jre.jpg)
 
 
 
@@ -172,7 +191,7 @@ JDK = JRE + 개발 도구
 - 자바 기반 애플리케이션 `개발`을 위한 소프트웨어 패키지다.
 - 오라클은 자바 11부터는 JDK만 제공하며 JRE를 따로 제공하지 않는다.
 
-![출처 : https://wikidocs.net/257](https://github.com/hanull/java-study/tree/master/log/week1/img/jdk.jpg)
+![출처 : https://wikidocs.net/257](https://github.com/hanull/java-study/blob/master/log/week1/img/jdk.jpg)
 
 
 
@@ -182,3 +201,4 @@ JDK = JRE + 개발 도구
 
 - https://www.inflearn.com/course/the-java-code-manipulation#description
 - https://homoefficio.github.io/2019/01/31/Back-to-the-Essence-Java-%EC%BB%B4%ED%8C%8C%EC%9D%BC%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%EA%B9%8C%EC%A7%80-1
+- https://ko.wikipedia.org/wiki/JIT_%EC%BB%B4%ED%8C%8C%EC%9D%BC
