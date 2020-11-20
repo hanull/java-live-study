@@ -52,11 +52,11 @@
 
 - `javac` 명령으로 바이트코드 생성
 
-![바이트코드 생성](https://github.com/hanull/java-study/blob/master/log/week1/img/javac.png)
+![바이트코드 생성](https://github.com/hanull/java-study/blob/master/week1/img/javac.png)
 
 - 생성된 바이트코드는 `javap` 명령으로 확인 가능
 
-![바이트코드 확인](https://github.com/hanull/java-study/blob/master/log/week1/img/javac2.png)
+![바이트코드 확인](https://github.com/hanull/java-study/blob/master/week1/img/javac2.png)
 
 
 
@@ -70,7 +70,7 @@
 
    - 토큰 스트림의 언어의 스펙으로 정해진 문법 형식에 맞는지 검사한다. 맞지 않으면 `컴파일 에러`, 맞다면 `파스 트리` 를 생성한다.
 
-   ![출처 : https://en.wikipedia.org/wiki/Compiler](https://github.com/hanull/java-study/blob/master/log/week1/img/parsertree.gif)
+   ![출처 : https://en.wikipedia.org/wiki/Compiler](https://github.com/hanull/java-study/blob/master/week1/img/parsertree.gif)
 
 3. 의미 분석
 
@@ -93,7 +93,7 @@
 
 `java` 명령으로 자바 애플리케이션을 실행할 수 있다. 
 
-![](https://github.com/hanull/java-study/blob/master/log/week1/img/java.png)
+![](https://github.com/hanull/java-study/blob/master/week1/img/java.png)
 
 
 
@@ -178,7 +178,7 @@ JRE = JVM + 라이브러리
 - 자바 애플리케이션을 `실행`할 수 있도록 구성된 배포판이다. 즉, JVM의 `실행 환경`을 구현했다고 할 수 있다.
 - 하지만, 개발 도구는 포함하지 않는다. (JDK에서 제공)
 
-![출처 : https://wikidocs.net/257](https://github.com/hanull/java-study/blob/master/log/week1/img/jre.jpg)
+![출처 : https://wikidocs.net/257](https://github.com/hanull/java-study/blob/master/week1/img/jre.jpg)
 
 
 
@@ -191,14 +191,13 @@ JDK = JRE + 개발 도구
 - 자바 기반 애플리케이션 `개발`을 위한 소프트웨어 패키지다.
 - 오라클은 자바 11부터는 JDK만 제공하며 JRE를 따로 제공하지 않는다.
 
-![출처 : https://wikidocs.net/257](https://github.com/hanull/java-study/blob/master/log/week1/img/jdk.jpg)
+![출처 : https://wikidocs.net/257](https://github.com/hanull/java-study/blob/master/week1/img/jdk.jpg)
 
 
 
 ## 8. 참조
 
 - https://asfirstalways.tistory.com/158#recentEntries
-
 - https://www.inflearn.com/course/the-java-code-manipulation#description
 - https://homoefficio.github.io/2019/01/31/Back-to-the-Essence-Java-%EC%BB%B4%ED%8C%8C%EC%9D%BC%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%EA%B9%8C%EC%A7%80-1
 - https://ko.wikipedia.org/wiki/JIT_%EC%BB%B4%ED%8C%8C%EC%9D%BC

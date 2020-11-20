@@ -9,8 +9,8 @@
 ## 학습 내용
 | 주차 | 내용         | 기간                    |
 | :--: | ------------ | ----------------------- |
-|  1   | [**JVM**](https://github.com/hanull/java-study/blob/master/log/week1/week1.md)          | 2020.11.09 ~ 2020.11.14 |
-|  2   | 변수         |                         |
+|  1   | [**JVM**](https://github.com/hanull/java-study/blob/master/week1/note.md)          | 2020.11.09 ~ 2020.11.14 |
+|  2   | [**변수**](https://github.com/hanull/java-study/blob/master/week2/note.md)         | 2020.11.16 ~ 2020.11.21 |
 |  3   | 연산자       |                         |
 |  4   | 조건문       |                         |
 |  5   | 반복문       |                         |
