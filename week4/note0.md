@@ -35,6 +35,7 @@ JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
 | `@AfterEach`         | 각 테스트 이후에 실행 된다. JUnit4의 After와 같다.           |
 | `@BeforeAll`         | 모든 테스트 전에 딱 한 번 실행 된다. JUnit4의 @BeforeClass와 같다. |
 | `@AfterAll`          | 모든 테스트 이후에 딱 한 번 실행 된다. JUnit4의 @AfterClass와 같다. |
+| `@Nested`          | 계층 구조의 테스트 코드를 작성할 수 있다 |
 | `@Tag`               | 테스트 필터링을 위한 테그를 선언하는데 사용                  |
 | `@Disabled`          | 테스트 클래스 혹은 메소드를 비활성하는데 사용(JUnit 4의 @Ignore와 유사) |
 | `@Timeout`           | 주어진 시간을 초과할 경우, 테스트 실패를 나타내기 위해 사용  |
