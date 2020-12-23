@@ -85,10 +85,7 @@ class AssumptionsDemo {
 }
 ```
 
-
-
-
-
 ## 참고
 
 - [junit5 가이드 문서](https://junit.org/junit5/docs/current/user-guide/)
+- [DIC 패턴 - JUnit5 계층구조 테스트 코드 작성하기](https://johngrib.github.io/wiki/junit5-nested/#junit5%EC%9D%98-nested%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4-%EA%B3%84%EC%B8%B5-%EA%B5%AC%EC%A1%B0-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%9E%91%EC%84%B1%ED%95%98%EC%9E%90)
