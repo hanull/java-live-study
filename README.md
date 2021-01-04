@@ -20,6 +20,7 @@
 |     | [**ListNode로 Stack 구현하기**](https://github.com/hanull/java-live-study-assignment/blob/master/src/stack/ListNodeStack.java)       | |
 |     | [**Queue 구현하기**](https://github.com/hanull/java-live-study-assignment/tree/master/src/queue)       | |
 |  5   | [**클래스**](https://github.com/hanull/java-study/blob/master/week5/note.md)       | 2020.12.29 ~ 2020.12.30 |
-|     | [**BinaryTree를 정의하고 bfs, dfs 구현하기**]()       | |
+|     | [**BinaryTree를 정의하고 bfs, dfs 구현하기**](https://github.com/hanull/java-live-study-assignment/blob/master/src/binarytree/BinaryTree.java)       | 2021.01.05 ~ 2021.01.06 |
+|  6   | [**상속**]()       | 2021.01.06 ~  |
 
 ## 회고록
