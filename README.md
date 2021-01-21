@@ -22,5 +22,6 @@
 |  5   | [**클래스**](https://github.com/hanull/java-study/blob/master/week5/note.md)       | 2020.12.29 ~ 2020.12.30 |
 |     | [**BinaryTree를 정의하고 bfs, dfs 구현하기**](https://github.com/hanull/java-live-study-assignment/blob/master/src/binarytree/BinaryTree.java)       | 2021.01.05 ~ 2021.01.06 |
 |  6   | [**상속**](https://github.com/hanull/java-study/blob/master/week6/note.md)       | 2021.01.12 ~ 2021.01.14 |
+|  7   | [**패키지**](https://github.com/hanull/java-study/blob/master/week7/note.md)       | 2021.01.20 ~ 2021.01.21 |
 
 ## 회고록
