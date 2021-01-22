@@ -37,8 +37,92 @@
 - 자식 클래스는 부모 클래스를 알지만, 부모 클래스는 자식 클래스를 알 수 없다.
 
 
+### 자식 클래스 객체를 생성할 때(부모 참조) 메모리 할당은 어떻게 될까??
+
+```java
+Parent p2 = new Child();
+p2.hello();
+```
+
+p2 객체가 생성될 때는 Object, Parent, Chile 클래스가 메모리 할당되고, p2는 `Parent` 의 주소를 참조한다. 만약 hello() 메소드가 Parent 의 공간에 없다면  `Object` 공간으로 올라가서 찾는다. Object 공간에도 없다면 에러를 발생한다.
+
+
+
+자식 클래스를  참조하고 싶다면, 업캐스팅 된 p2를 다운 캐스팅하면 된다.
+
+```java
+Child child = (Child) p2;
+child.hello();
+```
+
 
 ## super 키워드
+
+
+
+### 자식 클래스 객체를 생성할 때(부모 참조) 메모리 할당은 어떻게 되는가??
+
+```java
+Parent p2 = new Child();
+p2.hello();
+```
+
+p2 객체가 생성될 때는 Object, Parent, Chile 클래스가 메모리 할당되고, p2는 `Parent` 의 주소를 참조한다. 만약 hello() 메소드가 Parent 의 공간에 없다면  `Object` 공간으로 올라가서 찾는다. Object 공간에도 없다면 에러를 발생한다.
+
+
+
+자식 클래스를  참조하고 싶다면, 업캐스팅 된 p2를 다운 캐스팅하면 된다.
+
+```java
+Child child = (Child) p2;
+child.hello();
+```
+
+
+
+
+
+### super
+
+부모 클래스를 상속받은 자식 클래스의 생성자에는 super() 키워드가 생략되어 있다. 따라서 자식 객체를 생성 시 부모 클래스의 생성자를 호출한다.
+
+```java
+public class Parent {
+
+	Parent() {
+		System.out.println("부모 생성자");
+	}
+	
+	void hello() {
+		System.out.println("hello");
+	}
+}
+
+public class Child extends Parent{
+
+	Child() {
+    // super();  
+		System.out.println("자식 생성자");
+	}
+}
+```
+
+```java
+public static void main(String[] args) {
+		Parent parent = new Parent();
+		Child child = new Child();
+		
+		child.hello();
+	}
+```
+
+```
+부모 생성자
+부모 생성자
+자식 생성자
+hello
+```
+
 
 ### 만약, 동일한 이름의 멤버 변수가 부모, 자식 클래스에 둘다 존재할 경우 어떤 멤버 변수를 사용될까?? 
 
